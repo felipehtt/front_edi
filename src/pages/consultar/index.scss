@@ -1,0 +1,40 @@
+.pagina-consultar {
+    padding: 50px;
+
+    h1 {
+        padding-bottom: 10px;
+    }
+
+    table {
+        width: 1200px;
+
+        padding-top: 20px;
+
+        th {
+            text-align: left;
+            padding: 5px;
+        }
+
+        td {
+            padding: 5px;
+            border-top: 1px solid #000;
+        }
+    }
+
+    button {
+        font: 600 18px 'Poppins';
+        padding: 6px 10px;
+        margin: 10px 0px 0px 10px;
+        border: none;
+        background-color: #2f72c9;
+        color: #fff;
+        border-radius: 12px;
+    }
+
+    button:hover{
+
+        background-color: #1d60b8;
+        transition: 1s;
+    }
+
+}

@@ -1,0 +1,42 @@
+.pagina-cadastrar {
+    padding: 50px;
+
+    h1 {
+        font: 600 30px 'Poppins';
+    }
+    
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        > div {
+            display: flex;
+            align-items: center;
+
+            label {
+                display: inline-block;
+                width: 200px;
+                text-align: right;
+                padding-right: 10px;
+                font: 400 24px 'Poppins';
+            }
+
+            input {
+                font: 400 20px 'Poppins';
+                padding: 5px;
+                border: 1px solid #000;
+            }
+        }
+    }
+
+    button{
+        font: 600 23px 'Poppins';
+        padding: 6px 10px;
+        margin: 10px 0px 0px 10px;
+        border: none;
+        background-color: #2f72c9;
+        color: #fff;
+        border-radius: 12px;
+    }
+}
