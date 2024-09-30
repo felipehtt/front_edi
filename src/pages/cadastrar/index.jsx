@@ -48,7 +48,7 @@ export default function Cadastrar() {
             setTemaFesta(resp.data.temaFesta);
             setLembrete(resp.data.lembrete);
 
-            alert('Intenção Alterada.')
+            alert('Intenção Alterada.');
 
         }
 
