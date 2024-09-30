@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './index.scss'
+import { Link } from 'react-router-dom';
 
 import axios from 'axios'
 
@@ -48,6 +49,7 @@ export default function Consultar() {
                             <td>{item.tipoFesta}</td>
                             <td>{item.temaFesta}</td>
                             <td>{item.lembrete}</td>
+                            <td><Link to={`/cadastrar/${item.idIntencao}`}>Alterar</Link></td>
                         </tr>
                     )}
                 </tbody>

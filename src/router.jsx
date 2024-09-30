@@ -13,6 +13,7 @@ export default function Navegacao(){
               <Route path='/' element={<Home />} />
               <Route path='/consultar' element={<Consultar />} />
               <Route path='/cadastrar' element={<Cadastrar />} />
+              <Route path='/cadastrar/:id' element={<Cadastrar />} />
          </Routes>
       </BrowserRouter>
 

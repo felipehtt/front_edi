@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom';
 import './index.scss'
 
 import axios from 'axios'
@@ -12,6 +13,8 @@ export default function Cadastrar() {
     const [temaFesta, setTemaFesta] = useState('');
     const [lembrete, setLembrete] = useState('');
 
+    const { id } = useParams();
+
     async function salvar() {
         const paramCorpo = {
             "nome": nome,
@@ -23,17 +26,61 @@ export default function Cadastrar() {
             "lembrete": lembrete
         }
 
-        const url = 'http://localhost:7000/intencao';
-        let resp = await axios.post(url, paramCorpo);
+        if(id == undefined){
 
-        alert('Pessoa adicionada na Intenções. Id: ' + resp.data.idIntencao);
+            const url = 'http://localhost:7000/intencao';
+            let resp = await axios.post(url, paramCorpo);
+    
+            alert('Pessoa adicionada na Intenções. Id: ' + resp.data.idIntencao);
+
+
+        }
+        else{
+
+            const url = `http://localhost:7000/intencao/${id}`;
+            let resp = await axios.put(url);
+
+            setNome(resp.data.nome);
+            setTelefone(resp.data.telefone);
+            setCep(resp.data.cep);
+            setDataFesta(resp.data.dataFesta);
+            setTipoFesta(resp.data.tipoFesta);
+            setTemaFesta(resp.data.temaFesta);
+            setLembrete(resp.data.lembrete);
+
+            alert('Intenção Alterada.')
+
+        }
+
+
     }
 
+    async function buscar() {
+
+        const url = `http://localhost:7000/intencao/${id}`;
+        let resp = await axios.get(url);
+
+        setNome(resp.data.nome);
+        setTelefone(resp.data.telefone);
+        setCep(resp.data.cep);
+        setDataFesta(resp.data.dataFesta);
+        setTipoFesta(resp.data.tipoFesta);
+        setTemaFesta(resp.data.temaFesta);
+        setLembrete(resp.data.lembrete);
+
+    }
+
+    useEffect(() => {
+
+        buscar();
+
+    }, [])
 
     return (
         <div className='pagina-cadastrar'>
             <h1> CADASTRAR </h1>
 
+            <p>ID da intenção: {id}</p>
 
             <div className='form'>
                 <div>
