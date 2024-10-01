@@ -32,14 +32,15 @@ export default function Cadastrar() {
             const url = 'http://localhost:7000/intencao';
             let resp = await axios.post(url, paramCorpo);
             
-            alert('Pessoa adicionada na Intenções. Id: ' + resp.data.id);
+            alert('Pessoa adicionada na Intenções. Id: ' + resp.data.idIntencao);
     
         }
         else{
 
             const url = `http://localhost:7000/intencao/${id}`;
+
             let resp = await axios.put(url);
-    
+
             alert(`Intenção Alterada.`);
 
         }
