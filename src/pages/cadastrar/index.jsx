@@ -13,7 +13,7 @@ export default function Cadastrar() {
     const [temaFesta, setTemaFesta] = useState('');
     const [lembrete, setLembrete] = useState('');
 
-    const { id } = useParams('');
+    const { id } = useParams();
 
     async function salvar() {
 
@@ -38,10 +38,9 @@ export default function Cadastrar() {
         else {
 
             const url = `http://localhost:7000/intencao/${id}`;
-
             let resp = await axios.put(url);
 
-            alert(`Intenção Alterada.`);
+            alert('Intenção Alterada.');
 
         }
 
