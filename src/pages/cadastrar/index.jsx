@@ -40,7 +40,7 @@ export default function Cadastrar() {
             const url = `http://localhost:7000/intencao/${id}`;
             let resp = await axios.put(url);
     
-            alert(`Intenção Alterada. ${resp.data.id}`);
+            alert(`Intenção Alterada.`);
 
         }
 
