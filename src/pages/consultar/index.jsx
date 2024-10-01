@@ -17,11 +17,14 @@ export default function Consultar() {
 
     }
 
-    
+
 
     return (
         <div className='pagina-consultar'>
-            <h1> CONSULTAR </h1>
+
+            <a href="/">Voltar</a>
+
+            <h1>- CONSULTAR</h1>
 
             <button onClick={buscar}>Buscar</button>
 
@@ -40,7 +43,7 @@ export default function Consultar() {
                 </thead>
 
                 <tbody>
-                    {listaIntencoes.map(item => 
+                    {listaIntencoes.map(item =>
                         <tr>
                             <td>{item.idIntencao}</td>
                             <td>{item.nome}</td>
@@ -57,7 +60,7 @@ export default function Consultar() {
 
             </table>
 
-           
+
         </div>
     )
 }

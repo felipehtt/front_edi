@@ -1,11 +1,24 @@
 .pagina-cadastrar {
-    padding: 50px;
+    padding: 40px;
 
     h1 {
         font: 600 30px 'Poppins';
+        padding-bottom: 24px;
     }
-    
-    p{
+
+    a {
+        font-size: 17px;
+        color: #000;
+        padding: 0px 0px 15px 10px;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: #2f72c9;
+        font-weight: 700;
+    }
+
+    p {
         padding-left: 200px;
         margin-bottom: 10px
     }
@@ -15,7 +28,7 @@
         flex-direction: column;
         gap: 10px;
 
-        > div {
+        >div {
             display: flex;
             align-items: center;
 
@@ -35,13 +48,20 @@
         }
     }
 
-    button{
-        font: 600 23px 'Poppins';
+    button {
+        font: 600 18px 'Poppins';
         padding: 6px 10px;
-        margin: 10px 0px 0px 10px;
+        margin: 27px 0px 0px 100px;
         border: none;
         background-color: #2f72c9;
         color: #fff;
         border-radius: 12px;
+        cursor: pointer;
+    }
+
+    button:hover {
+
+        background-color: #1857aa;
+        transition: 0.7s;
     }
 }

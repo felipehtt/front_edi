@@ -1,15 +1,17 @@
 import './index.scss';
 import { Link } from 'react-router-dom';
 
-export default function Home(){
+export default function Home() {
 
-    return(
+    return (
 
         <div className='pagina-home'>
 
             <div>
 
-                <h1>Intenções de Festas</h1>
+                <h1>- HOME</h1>
+
+                <h2>Intenções de Festas</h2>
 
                 <img src="" alt="" />
 

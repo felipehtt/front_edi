@@ -27,15 +27,15 @@ export default function Cadastrar() {
             "lembrete": lembrete
         }
 
-        if(id == undefined){
-    
+        if (id == undefined) {
+
             const url = 'http://localhost:7000/intencao';
             let resp = await axios.post(url, paramCorpo);
-            
+
             alert('Pessoa adicionada na Intenções. Id: ' + resp.data.idIntencao);
-    
+
         }
-        else{
+        else {
 
             const url = `http://localhost:7000/intencao/${id}`;
 
@@ -70,7 +70,10 @@ export default function Cadastrar() {
 
     return (
         <div className='pagina-cadastrar'>
-            <h1> CADASTRAR </h1>
+
+            <a href="/">Voltar</a>
+
+            <h1>- CADASTRAR</h1>
 
             <p>ID da intenção: {id} </p>
 
