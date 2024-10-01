@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import './index.scss'
 
-import axios from 'axios'
+import axios from 'axios';
 
 export default function Cadastrar() {
     const [nome, setNome] = useState('');
@@ -16,6 +16,7 @@ export default function Cadastrar() {
     const { id } = useParams();
 
     async function salvar() {
+
         const paramCorpo = {
             "nome": nome,
             "telefone": telefone,
@@ -27,31 +28,21 @@ export default function Cadastrar() {
         }
 
         if(id == undefined){
-
+    
             const url = 'http://localhost:7000/intencao';
             let resp = await axios.post(url, paramCorpo);
+            
+            alert('Pessoa adicionada na Intenções. Id: ' + resp.data.id);
     
-            alert('Pessoa adicionada na Intenções. Id: ' + resp.data.idIntencao);
-
-
         }
         else{
 
             const url = `http://localhost:7000/intencao/${id}`;
             let resp = await axios.put(url);
-
-            setNome(resp.data.nome);
-            setTelefone(resp.data.telefone);
-            setCep(resp.data.cep);
-            setDataFesta(resp.data.dataFesta);
-            setTipoFesta(resp.data.tipoFesta);
-            setTemaFesta(resp.data.temaFesta);
-            setLembrete(resp.data.lembrete);
-
-            alert('Intenção Alterada.');
+    
+            alert(`Intenção Alterada. ${resp.data.id}`);
 
         }
-
 
     }
 
@@ -80,7 +71,7 @@ export default function Cadastrar() {
         <div className='pagina-cadastrar'>
             <h1> CADASTRAR </h1>
 
-            <p>ID da intenção: {id}</p>
+            <p>ID da intenção: {id} </p>
 
             <div className='form'>
                 <div>

@@ -1,12 +1,13 @@
-import { useState } from 'react'
-import './index.scss'
+import { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import './index.scss';
 import { Link } from 'react-router-dom';
 
 import axios from 'axios'
 
 export default function Consultar() {
-    const [listaIntencoes, setListaIntencoes] = useState([]);
 
+    const [listaIntencoes, setListaIntencoes] = useState([]);
 
     async function buscar() {
 
