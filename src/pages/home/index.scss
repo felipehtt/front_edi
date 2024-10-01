@@ -3,9 +3,13 @@
     flex-direction: column;
     margin: 30px;
 
+    h1 {
+        padding-bottom: 27px;
+    }
+
     ul {
         list-style: none;
-        
+
         a {
             text-decoration: none;
             color: #000;

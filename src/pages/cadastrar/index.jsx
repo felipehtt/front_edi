@@ -27,15 +27,15 @@ export default function Cadastrar() {
             "lembrete": lembrete
         }
 
-        if(id == undefined){
-    
+        if (id == undefined) {
+
             const url = 'http://localhost:7000/intencao';
             let resp = await axios.post(url, paramCorpo);
-            
+
             alert('Pessoa adicionada na Intenções. Id: ' + resp.data.idIntencao);
-    
+
         }
-        else{
+        else {
 
             const url = `http://localhost:7000/intencao/${id}`;
 
@@ -70,38 +70,41 @@ export default function Cadastrar() {
 
     return (
         <div className='pagina-cadastrar'>
-            <h1> CADASTRAR </h1>
+
+            <a href="/">Voltar</a>
+
+            <h1>- CADASTRAR</h1>
 
             <p>ID da intenção: {id} </p>
 
             <div className='form'>
                 <div>
                     <label>Nome:</label>
-                    <input type='text' value={nome} onChange={e => setNome(e.target.value)} />
+                    <input type='text' placeholder='Felipe Soares' value={nome} onChange={e => setNome(e.target.value)} />
                 </div>
                 <div>
                     <label>Telefone:</label>
-                    <input type='text' value={telefone} onChange={e => setTelefone(e.target.value)} />
+                    <input type='text' placeholder='(11)12345-1234' value={telefone} onChange={e => setTelefone(e.target.value)} />
                 </div>
                 <div>
                     <label>CEP:</label>
-                    <input type='text' value={cep} onChange={e => setCep(e.target.value)} />
+                    <input type='text' placeholder='12345-123' value={cep} onChange={e => setCep(e.target.value)} />
                 </div>
                 <div>
                     <label>Data da Festa:</label>
-                    <input type='text' value={dataFesta} onChange={e => setDataFesta(e.target.value)} />
+                    <input type='text' placeholder='05/05/2024' value={dataFesta} onChange={e => setDataFesta(e.target.value)} />
                 </div>
                 <div>
                     <label>Tipo da Festa:</label>
-                    <input type='text' value={tipoFesta} onChange={e => setTipoFesta(e.target.value)} />
+                    <input type='text' placeholder='Casamento' value={tipoFesta} onChange={e => setTipoFesta(e.target.value)} />
                 </div>
                 <div>
                     <label>Tema da Festa:</label>
-                    <input type='text' value={temaFesta} onChange={e => setTemaFesta(e.target.value)} />
+                    <input type='text' placeholder='Heróis' value={temaFesta} onChange={e => setTemaFesta(e.target.value)} />
                 </div>
                 <div>
                     <label>Lembrete:</label>
-                    <input type='text' value={lembrete} onChange={e => setLembrete(e.target.value)} />
+                    <input type='text' placeholder='Aniversariante faz 13 anos' value={lembrete} onChange={e => setLembrete(e.target.value)} />
                 </div>
             </div>
             <button onClick={salvar}> SALVAR </button>
