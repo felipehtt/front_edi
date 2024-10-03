@@ -53,7 +53,7 @@ export default function Consultar() {
                             <td>{item.tipoFesta}</td>
                             <td>{item.temaFesta}</td>
                             <td>{item.lembrete}</td>
-                            <td><Link to={`/cadastrar/${item.idIntencao}`}>Alterar</Link></td>
+                            <td><Link to={`/alterar/${item.idIntencao}`}>Alterar</Link></td>
                         </tr>
                     )}
                 </tbody>

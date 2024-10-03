@@ -1,10 +1,11 @@
+import './index.scss';
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
-import './index.scss'
 
 import axios from 'axios';
 
-export default function Cadastrar() {
+export default function Alterar() {
+
     const [nome, setNome] = useState('');
     const [telefone, setTelefone] = useState('');
     const [cep, setCep] = useState('');
@@ -13,7 +14,9 @@ export default function Cadastrar() {
     const [temaFesta, setTemaFesta] = useState('');
     const [lembrete, setLembrete] = useState('');
 
-    async function salvar() {
+    const { id } = useParams();
+
+    async function alterar() {
 
         const paramCorpo = {
             "nome": nome,
@@ -25,19 +28,44 @@ export default function Cadastrar() {
             "lembrete": lembrete
         }
 
-        const url = 'http://localhost:7000/intencao';
-        let resp = await axios.post(url, paramCorpo);
+        const url = `http://localhost:7000/intencao/${id}`;
+        let resp = await axios.put(url, paramCorpo);
 
-        alert('Pessoa adicionada na Intenções. Id: ' + resp.data.idIntencao);
+        alert(`Intenção Alterada. id: ${resp.data.idIntencao}`);
+
 
     }
 
+    async function buscar() {
+
+        const url = `http://localhost:7000/intencao/${id}`;
+        let resp = await axios.get(url);
+
+        setNome(resp.data.nome);
+        setTelefone(resp.data.telefone);
+        setCep(resp.data.cep);
+        setDataFesta(resp.data.dataFesta);
+        setTipoFesta(resp.data.tipoFesta);
+        setTemaFesta(resp.data.temaFesta);
+        setLembrete(resp.data.lembrete);
+
+    }
+
+    useEffect(() => {
+
+        buscar();
+
+    }, [])
+
     return (
-        <div className='pagina-cadastrar'>
+
+        <div className='pagina-alterar'>
 
             <a href="/">Voltar</a>
 
-            <h1>- CADASTRAR</h1>
+            <h1>- ALTERAR</h1>
+
+            <p>id Intenção: { id }</p>
 
             <div className='form'>
                 <div>
@@ -69,8 +97,10 @@ export default function Cadastrar() {
                     <input type='text' placeholder='Aniversariante faz 13 anos' value={lembrete} onChange={e => setLembrete(e.target.value)} />
                 </div>
             </div>
-            <button onClick={salvar}> SALVAR </button>
+            <button onClick={alterar}> ALTERAR </button>
 
         </div>
-    )
+
+    );
+
 }
