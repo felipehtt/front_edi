@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
 import './index.scss';
 import { Link } from 'react-router-dom';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPenToSquare } from '@fortawesome/free-regular-svg-icons';
 
 import axios from 'axios'
 
@@ -16,8 +18,6 @@ export default function Consultar() {
         setListaIntencoes(resp.data);
 
     }
-
-
 
     return (
         <div className='pagina-consultar'>
@@ -53,7 +53,7 @@ export default function Consultar() {
                             <td>{item.tipoFesta}</td>
                             <td>{item.temaFesta}</td>
                             <td>{item.lembrete}</td>
-                            <td><Link to={`/alterar/${item.idIntencao}`}>Alterar</Link></td>
+                            <td><Link to={`/alterar/${item.idIntencao}`}><FontAwesomeIcon icon={faPenToSquare} color='#2f72c9'/></Link></td>
                         </tr>
                     )}
                 </tbody>
@@ -62,7 +62,8 @@ export default function Consultar() {
 
 
         </div>
-    )
+        
+    );
 }
 
 

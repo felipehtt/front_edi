@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom';
+import { useState } from 'react'
 import './index.scss'
 
 import axios from 'axios';
@@ -56,7 +55,7 @@ export default function Cadastrar() {
                     <label>Data da Festa:</label>
                     <input type='text' placeholder='05/05/2024' value={dataFesta} onChange={e => setDataFesta(e.target.value)} />
                 </div>
-                <div>
+                <div>   
                     <label>Tipo da Festa:</label>
                     <input type='text' placeholder='Casamento' value={tipoFesta} onChange={e => setTipoFesta(e.target.value)} />
                 </div>
