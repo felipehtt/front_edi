@@ -1,7 +1,10 @@
-import { useState } from 'react'
-import './index.scss'
+import { useState } from 'react';
+import './index.scss';
 
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHandPointLeft } from '@fortawesome/free-regular-svg-icons';
+
 
 export default function Cadastrar() {
     const [nome, setNome] = useState('');
@@ -34,7 +37,7 @@ export default function Cadastrar() {
     return (
         <div className='pagina-cadastrar'>
 
-            <a href="/">Voltar</a>
+            <a href="/"><FontAwesomeIcon icon={faHandPointLeft}/></a>
 
             <h1>- CADASTRAR</h1>
 

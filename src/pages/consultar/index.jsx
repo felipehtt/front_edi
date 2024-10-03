@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare } from '@fortawesome/free-regular-svg-icons';
+import { faHandPointLeft } from '@fortawesome/free-regular-svg-icons';
 
 import axios from 'axios'
 
@@ -22,7 +23,7 @@ export default function Consultar() {
     return (
         <div className='pagina-consultar'>
 
-            <a href="/">Voltar</a>
+            <a href="/"><FontAwesomeIcon icon={faHandPointLeft}/></a>
 
             <h1>- CONSULTAR</h1>
 
@@ -53,7 +54,7 @@ export default function Consultar() {
                             <td>{item.tipoFesta}</td>
                             <td>{item.temaFesta}</td>
                             <td>{item.lembrete}</td>
-                            <td><Link to={`/alterar/${item.idIntencao}`}><FontAwesomeIcon icon={faPenToSquare} color='#2f72c9'/></Link></td>
+                            <td><Link to={`/alterar/${item.idIntencao}`}><FontAwesomeIcon icon={faPenToSquare}/></Link></td>
                         </tr>
                     )}
                 </tbody>
