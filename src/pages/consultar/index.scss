@@ -1,8 +1,16 @@
 .pagina-consultar {
     padding: 50px;
 
+    .top {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        padding-bottom: 22px;
+    }
+
+
     h1 {
-        padding-bottom: 27px;
+        padding-bottom: 18px;
     }
 
 

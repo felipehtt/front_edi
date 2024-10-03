@@ -3,7 +3,7 @@ import './index.scss';
 
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHandPointLeft } from '@fortawesome/free-regular-svg-icons';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 
 export default function Cadastrar() {
@@ -13,7 +13,7 @@ export default function Cadastrar() {
     const [dataFesta, setDataFesta] = useState('');
     const [tipoFesta, setTipoFesta] = useState('');
     const [temaFesta, setTemaFesta] = useState('');
-    const [lembrete, setLembrete] = useState('');
+    const [dataIntencao, setDataIntencao] = useState('');
 
     async function salvar() {
 
@@ -24,7 +24,7 @@ export default function Cadastrar() {
             "dataFesta": dataFesta,
             "tipoFesta": tipoFesta,
             "temaFesta": temaFesta,
-            "lembrete": lembrete
+            "dataIntencao": dataIntencao
         }
 
         const url = 'http://localhost:7000/intencao';
@@ -37,9 +37,11 @@ export default function Cadastrar() {
     return (
         <div className='pagina-cadastrar'>
 
-            <a href="/"><FontAwesomeIcon icon={faHandPointLeft}/></a>
+            <div className='top'>
+                <a className='icon' href="/"><FontAwesomeIcon icon={faArrowLeft} size='2x' /></a>
 
-            <h1>- CADASTRAR</h1>
+                <h1>CADASTRAR</h1>
+            </div>
 
             <div className='form'>
                 <div>
@@ -58,7 +60,7 @@ export default function Cadastrar() {
                     <label>Data da Festa:</label>
                     <input type='text' placeholder='05/05/2024' value={dataFesta} onChange={e => setDataFesta(e.target.value)} />
                 </div>
-                <div>   
+                <div>
                     <label>Tipo da Festa:</label>
                     <input type='text' placeholder='Casamento' value={tipoFesta} onChange={e => setTipoFesta(e.target.value)} />
                 </div>
@@ -67,8 +69,8 @@ export default function Cadastrar() {
                     <input type='text' placeholder='Heróis' value={temaFesta} onChange={e => setTemaFesta(e.target.value)} />
                 </div>
                 <div>
-                    <label>Lembrete:</label>
-                    <input type='text' placeholder='Aniversariante faz 13 anos' value={lembrete} onChange={e => setLembrete(e.target.value)} />
+                    <label>Data Intenção</label>
+                    <input type='text' placeholder='Aniversariante faz 13 anos' value={dataIntencao} onChange={e => setDataIntencao(e.target.value)} />
                 </div>
             </div>
             <button onClick={salvar}> SALVAR </button>

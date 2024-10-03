@@ -1,9 +1,15 @@
 .pagina-cadastrar {
     padding: 40px;
 
+    .top {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        padding-bottom: 22px;
+    }
+
     h1 {
-        font: 600 30px 'Poppins';
-        padding-bottom: 24px;
+        padding-bottom: 18px;
     }
 
     a {

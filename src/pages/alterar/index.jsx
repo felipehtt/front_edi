@@ -1,6 +1,9 @@
 import './index.scss';
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 import axios from 'axios';
 
@@ -12,7 +15,7 @@ export default function Alterar() {
     const [dataFesta, setDataFesta] = useState('');
     const [tipoFesta, setTipoFesta] = useState('');
     const [temaFesta, setTemaFesta] = useState('');
-    const [lembrete, setLembrete] = useState('');
+    const [dataIntencao, setDataIntencao] = useState('');
 
     const { id } = useParams();
 
@@ -25,13 +28,13 @@ export default function Alterar() {
             "dataFesta": dataFesta,
             "tipoFesta": tipoFesta,
             "temaFesta": temaFesta,
-            "lembrete": lembrete
+            "dataIntencao": dataIntencao
         }
 
         const url = `http://localhost:7000/intencao/${id}`;
         let resp = await axios.put(url, paramCorpo);
 
-        alert(`Intenção Alterada. id: ${resp.data.idIntencao}`);
+        alert(`Intenção Alterada.`);
 
 
     }
@@ -47,7 +50,7 @@ export default function Alterar() {
         setDataFesta(resp.data.dataFesta);
         setTipoFesta(resp.data.tipoFesta);
         setTemaFesta(resp.data.temaFesta);
-        setLembrete(resp.data.lembrete);
+        setDataIntencao(resp.data.dataIntencao);
 
     }
 
@@ -61,11 +64,13 @@ export default function Alterar() {
 
         <div className='pagina-alterar'>
 
-            <a href="/">Voltar</a>
+            <div className='top'>
+                <a className='icon' href="/"><FontAwesomeIcon icon={faArrowLeft} size='2x' /></a>
 
-            <h1>- ALTERAR</h1>
+                <h1>ALTERAR</h1>
+            </div>
 
-            <p>id Intenção: { id }</p>
+            <p>id Intenção: {id}</p>
 
             <div className='form'>
                 <div>
@@ -93,11 +98,11 @@ export default function Alterar() {
                     <input type='text' placeholder='Heróis' value={temaFesta} onChange={e => setTemaFesta(e.target.value)} />
                 </div>
                 <div>
-                    <label>Lembrete:</label>
-                    <input type='text' placeholder='Aniversariante faz 13 anos' value={lembrete} onChange={e => setLembrete(e.target.value)} />
+                    <label>Data Intenção:</label>
+                    <input type='text' placeholder='Data de Hoje' value={dataIntencao} onChange={e => setDataIntencao(e.target.value)} />
                 </div>
             </div>
-            <button onClick={alterar}> ALTERAR </button>
+            <Link to='/consultar'><button onClick={alterar}> ALTERAR </button></Link>
 
         </div>
 

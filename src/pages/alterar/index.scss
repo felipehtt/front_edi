@@ -1,11 +1,19 @@
-.pagina-alterar{
+.pagina-alterar {
 
     padding: 40px;
 
-    h1 {
-        font: 600 30px 'Poppins';
-        padding-bottom: 24px;
+    .top {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        padding-bottom: 22px;
     }
+
+
+    h1 {
+        padding-bottom: 18px;
+    }
+
 
     a {
         font-size: 17px;
